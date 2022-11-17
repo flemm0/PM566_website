@@ -69,6 +69,9 @@ p3_hist <- cv_states %>%
           text = ~paste(paste("Date:", date, sep = " "), paste("New Cases:", new_cases, sep = " "))) %>%
   add_bars() %>%
   layout(barmode = "overlay")
+
+# Line chart for naive_CFR for all states over time using `plot_ly()`
+p4_lines <- plot_ly(cv_states, x = ~date, y = ~naive_CFR, color = ~state, type = "scatter", mode = "lines")
 ```
 
 ## Showcasing Plots {.tabset}
@@ -94,4 +97,12 @@ p2_scatter
 ```{r echo=FALSE}
 p3_hist
 ```
+
+### Figure 4
+
+```{r echo=FALSE}
+p4_lines
+```
+
+## {-}
 
